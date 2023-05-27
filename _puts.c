@@ -7,9 +7,14 @@
 
 int _puts(char *s)
 {
-	int a;
+	int a, count = 0;
 
-	for (a = 0; s[a] != '\0'; a++)
-		putchar(s[a]);
-	return (0);
+	if (s != NULL)
+
+		for (a = 0; s[a] != '\0'; a++)
+		{
+			_putchar(s[a]);
+			count++;
+		}
+	return (count);
 }
