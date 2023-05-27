@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+/**
+* _printf - a function to perform the same functions as printf
+* @format: a character string composed of zero or more directives.
+* Return: Always (0)
+*/
 
 int _printf(const char *format, ...)
 {
@@ -10,7 +15,6 @@ int _printf(const char *format, ...)
 	va_list toprint;
 
 	va_start(toprint, format);
-	
 
 	for (a = 0; format[a] != '\0'; a++)
 	{
@@ -27,25 +31,22 @@ int _printf(const char *format, ...)
 			_puts(va_arg(toprint, char *));
 			count += 1;
 			a++;
-		
 		}
-		else if (format[a+1] == '%')
+		else if (format[a + 1] == '%')
 		{
 			_putchar('%');
 		}
 		count++;
 	}
-	
-
-	return(count);
+	return (count);
 }
 
 
 
-
-
-
-
+/**
+* main - to test our work
+* Return: Always (0)
+*/
 
 int main(void)
 {
@@ -59,21 +60,3 @@ int main(void)
 	printf("Return value:%d\n", count2);
 	return (0);
 }
-
-/**
-int add(int a, int b)
-{
-	int sum = a + b;
-	return (sum);
-}
-
-
-int main(void)
-{
-
-	int a = add(2, 3);
-	printf("%d", a);
-	return (0);
-}
-
-*/

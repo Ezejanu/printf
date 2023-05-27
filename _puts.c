@@ -2,8 +2,10 @@
 #include <stdio.h>
 
 /**
+* _puts - writes to the std output
+* @s: string to be printed
+* Return: Always (0)
 */
-
 
 int _puts(char *s)
 {
