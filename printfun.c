@@ -29,34 +29,15 @@ int _printf(const char *format, ...)
 		else if (format[a + 1] == 's')
 		{
 			_puts(va_arg(toprint, char *));
-			count += 1;
+			count += (count - 1);
 			a++;
 		}
 		else if (format[a + 1] == '%')
 		{
 			_putchar('%');
+			a++;
 		}
 		count++;
 	}
 	return (count);
-}
-
-
-
-/**
-* main - to test our work
-* Return: Always (0)
-*/
-
-int main(void)
-{
-	char p = 'l';
-	char *b = "Ezejanu";
-
-	int count1 = printf("1%%Ugochi%cnyere%s\n", p, b);
-	int count2 = _printf("1%%Ugochi%cnyere%s\n", p, b);
-
-	printf("Return value:%d\n", count1);
-	printf("Return value:%d\n", count2);
-	return (0);
 }
