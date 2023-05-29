@@ -32,12 +32,12 @@ int _printf(const char *format, ...)
 			_putchar('%');
 			a++;
 		}
-		else if (format[a + 1] == 'd' || format[a + 1] == 'i')
-		{
-			getint(va_arg(toprint, int));
-			a++;
-		}
 	/**
+	*	else if (format[a + 1] == 'd' || format[a + 1] == 'i')
+	*	{
+	*		getint(va_arg(toprint, int));
+	*		a++;
+	*	}
 	*	else
 	*	{
 	*		_putchar('%');
