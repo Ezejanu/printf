@@ -11,7 +11,6 @@
 int _printf(const char *format, ...)
 {
 	unsigned int a, count = 0, string;
-
 	va_list toprint;
 
 	va_start(toprint, format);
@@ -35,6 +34,17 @@ int _printf(const char *format, ...)
 		else if (format[a + 1] == '%')
 		{
 			_putchar('%');
+			a++;
+		}
+		else if (format[a + 1] == 'd' || format[a + 1] == 'i')
+		{
+			getint(va_arg(toprint, int));
+			a++;
+		}
+		else
+		{
+			_putchar('%');
+			_putchar(format[a + 1]);
 			a++;
 		}
 		count++;
