@@ -10,7 +10,7 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int a, count = 0;
+	unsigned int a, count = 0, string;
 
 	va_list toprint;
 
@@ -28,8 +28,8 @@ int _printf(const char *format, ...)
 		}
 		else if (format[a + 1] == 's')
 		{
-			_puts(va_arg(toprint, char *));
-			count += (count - 1);
+			string = _puts(va_arg(toprint, char *));
+			count += (string - 1);
 			a++;
 		}
 		else if (format[a + 1] == '%')
