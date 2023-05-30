@@ -44,4 +44,24 @@ void fun_id(va_list toprint)
 		getint(id);
 }
 
+/**
+* fun_b - a function that converts an unsigned int argument to binary
+* @toprint: list
+*/
 
+void fun_b(va_list toprint)
+{
+	unsigned int ab;
+	int fun[100];
+	int a = 0;
+
+	ab = va_arg(toprint, int);
+	while (ab > 0)
+	{
+		fun[a] = ab % 2;
+		ab = ab / 2;
+		a++;
+	}
+	for (; a > 0; a--)
+		_putchar(fun[a] + '0');
+}

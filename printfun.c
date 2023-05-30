@@ -22,14 +22,14 @@ int _printf(const char *format, ...)
 		{
 			a++;
 			if (format[a] == 'c')
-			{
 				fun_c(toprint);
-			}
 			else if (format[a] == 's')
 				fun_s(toprint);
 			else if (format[a] == '%')
-			{
 				_putchar('%');
+			else if (format[a] == 'b')
+			{
+				fun_b(toprint);
 			}
 			else if (format[a] == 'd' || format[a] == 'i')
 			{

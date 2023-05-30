@@ -13,5 +13,6 @@ void fun_s(va_list toprint);
 int _putchar(char c);
 int _puts(char *s);
 int getint(int numb);
+void fun_b(va_list toprint);
 
 #endif
