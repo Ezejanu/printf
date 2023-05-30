@@ -1,7 +1,9 @@
 #include "main.h"
 
 /**
- */
+* fun_s - a funtion to print string
+* @toprint: list
+*/
 
 void fun_s(va_list toprint)
 {
@@ -14,7 +16,9 @@ void fun_s(va_list toprint)
 }
 
 /**
- */
+* fun_c -  a funtion to print char
+* @toprint: list
+*/
 
 void fun_c(va_list toprint)
 {
@@ -27,6 +31,8 @@ void fun_c(va_list toprint)
 }
 
 /**
+* fun_id - a funtion to print string
+* @toprint: list
  */
 
 void fun_id(va_list toprint)
