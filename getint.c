@@ -14,13 +14,14 @@ int getint(int numb)
 	{
 		_putchar('0');
 		count++;
+
 	}
 	else
 	{
 		if (numb < 0)
 		{
 			_putchar('-');
-			numb = numb * -1;
+			numb = -numb;
 			count++;
 		}
 		if (numb / 10)
@@ -30,7 +31,6 @@ int getint(int numb)
 		}
 		_putchar(numb % 10 + '0');
 		count++;
-
 	}
 	return (count);
 }

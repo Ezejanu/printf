@@ -36,7 +36,10 @@ int _printf(const char *format, ...)
 			}
 			else if (format[a] == 'd' || format[a] == 'i')
 			{
-				fun_id(toprint);
+				a--;
+				count += getint(va_arg(toprint, int));
+				a++;
+				count--;
 			}
 			else
 			{
