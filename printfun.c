@@ -10,22 +10,30 @@ int _printf(const char *format, ...)
 {
 	unsigned int a, count = 0;
 	va_list toprint;
+	char *str;
+	char e;
 
 	va_start(toprint, format);
 	if (format == NULL)
-		return (-1);
+		return (0);
 	for (a = 0; format[a] != '\0'; a++)
 	{
 		if (format[a] != '%')
 			_putchar(format[a]);
 		else if (format[a + 1] == 'c')
 		{
-			_putchar(va_arg(toprint, int));
+			e = va_arg(toprint, int);
+			if (!e)
+			return (0);
+			_putchar(e);
 			 a++;
 		}
 		else if (format[a + 1] == 's')
 		{
-			count += _puts(va_arg(toprint, char *));
+			str = va_arg(toprint, char *);
+			if (!str)
+			return (0);
+			count += _puts(str);
 			a++;
 		}
 		else if (format[a + 1] == '%')
