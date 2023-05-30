@@ -9,14 +9,14 @@
 
 int _puts(char *s)
 {
-	int a; /* count = 0;*/
+	int a, count = 0;
 
 	if (s != NULL)
 
 		for (a = 0; s[a] != '\0'; a++)
 		{
 			_putchar(s[a]);
-		/*	count++; */
+			count++;
 		}
-	return (0);
+	return (count);
 }

@@ -1,25 +1,37 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
 * getint - a function to print an integer
 * @numb: integer to be printed
+* Return: value of count
 */
 
-void  getint(long int numb)
+int getint(int numb)
 {
-	if (numb == 0)
-		_putchar('0');
+	int count = 0;
 
+	if (numb == 0)
+	{
+		_putchar('0');
+		count++;
+	}
 	else
 	{
 		if (numb < 0)
 		{
 			_putchar('-');
 			numb = numb * -1;
+			count++;
 		}
 		if (numb / 10)
-			getint(numb / 10);
+		{
+			count += getint(numb / 10);
 
+		}
 		_putchar(numb % 10 + '0');
+		count++;
+
 	}
+	return (count);
 }

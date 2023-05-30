@@ -10,6 +10,6 @@ int _printf(const char *format, ...);
 int add(int a, int b);
 int _putchar(char c);
 int _puts(char *s);
-void getint(long int numb);
+int getint(int numb);
 
 #endif

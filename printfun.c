@@ -1,17 +1,19 @@
+#include <unistd.h>
 #include "main.h"
-#include <stdio.h>
 #include <stdarg.h>
 /**
 * _printf - a function to perform the same functions as printf
 * @format: a character string composed of zero or more directives.
-* Return: Always (0)
+* Return: value of count
 */
 int _printf(const char *format, ...)
 {
-	unsigned int a, count = 0, string;
+	unsigned int a, count = 0;
 	va_list toprint;
 
 	va_start(toprint, format);
+	if (format == NULL)
+		return (-1);
 	for (a = 0; format[a] != '\0'; a++)
 	{
 		if (format[a] != '%')
@@ -23,8 +25,7 @@ int _printf(const char *format, ...)
 		}
 		else if (format[a + 1] == 's')
 		{
-			string = _puts(va_arg(toprint, char *));
-			count += (string - 1);
+			count += _puts(va_arg(toprint, char *));
 			a++;
 		}
 		else if (format[a + 1] == '%')
@@ -32,20 +33,55 @@ int _printf(const char *format, ...)
 			_putchar('%');
 			a++;
 		}
-	/**
-	*	else if (format[a + 1] == 'd' || format[a + 1] == 'i')
-	*	{
-	*		getint(va_arg(toprint, int));
-	*		a++;
-	*	}
-	*	else
-	*	{
-	*		_putchar('%');
-	*		_putchar(format[a + 1]);
-	*		a++;
-	*	}
-	*/
+		else if (format[a + 1] == 'd' || format[a + 1] == 'i')
+		{
+			count += getint(va_arg(toprint, int));
+			count--;
+			a++;
+		}
+		else
+		{
+			_putchar('%');
+			_putchar(format[a + 1]);
+			a++;
+		}
 		count++;
 	}
+	va_end(toprint);
 	return (count);
 }
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+/**
+* _puts - writes to the std output
+* @s: string to be printed
+* Return: value of count
+*/
+
+int _puts(char *s)
+{
+	int a, count = 0;
+
+	if (s != NULL)
+		for (a = 0; s[a] != '\0'; a++)
+		{
+			_putchar(s[a]);
+			count++;
+		}
+	return (count);
+}
+
+
+
