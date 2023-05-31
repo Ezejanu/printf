@@ -14,5 +14,10 @@ int _putchar(char c);
 int _puts(char *s);
 int getint(int numb);
 void fun_b(va_list toprint);
+int getunint(unsigned int numb);
+void fun_u(va_list toprint);
+void fun_o(va_list toprint);
+void fun_x(va_list toprint);
+void fun_X(va_list toprint);
 
 #endif

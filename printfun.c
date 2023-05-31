@@ -28,9 +28,15 @@ int _printf(const char *format, ...)
 			else if (format[a] == '%')
 				_putchar('%');
 			else if (format[a] == 'b')
-			{
 				fun_b(toprint);
-			}
+			else if (format[a] == 'u')
+				fun_u(toprint);
+			else if (format[a] == 'o')
+				fun_o(toprint);
+			else if(format[a] == 'x')
+				fun_x(toprint);
+			else if(format[a] == 'X')
+				fun_X(toprint);
 			else if (format[a] == 'd' || format[a] == 'i')
 			{
 				a--;

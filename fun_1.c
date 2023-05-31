@@ -56,12 +56,31 @@ void fun_b(va_list toprint)
 	int a = 0;
 
 	ab = va_arg(toprint, int);
-	while (ab > 0)
+	if (ab == 0)
+		_putchar('0');
+	else
 	{
-		fun[a] = ab % 2;
-		ab = ab / 2;
-		a++;
+		while (ab > 0)
+		{
+			fun[a] = ab % 2;
+			ab = ab / 2;
+			a++;
+		}
+		for (; a > 0; a--)
+			_putchar(fun[a - 1] + '0');
 	}
-	for (; a > 0; a--)
-		_putchar(fun[a] + '0');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
