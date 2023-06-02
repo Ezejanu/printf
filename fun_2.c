@@ -70,10 +70,10 @@ void fun_X(va_list toprint)
 		}
 		for (; a > 0; a--)
 		{
-			if (bin[a]  < 10)
+			if (bin[a - 1]  < 10)
 				_putchar(bin[a - 1] + '0');
 			else
-				_putchar(((bin[a]) - 10) + 'A');
+				_putchar(((bin[a - 1]) - 10) + 'A');
 		}
 	}
 }
@@ -104,7 +104,7 @@ void fun_x(va_list toprint)
         	}
         	for (; a > 0; a--)
         	{
-                	if (bin[a]  < 10)
+                	if (bin[a - 1] < 10)
                         	_putchar(bin[a - 1] + '0');
                 	else
                         	_putchar((bin[a - 1] - 10) + 'a');

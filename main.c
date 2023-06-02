@@ -41,6 +41,10 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
+    len = _printf("please count %d %d\n", b, c);
+    len2 = printf("Please count %d %d\n", b, c);
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
     _printf("Unsigned binary:[%b, %b]\n", b, c);
     printf("Unsigned binary:[%b, %b]\n", b, c);
     return (0);

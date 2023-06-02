@@ -7,7 +7,15 @@
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putchar(char c)
+void _putchar(char c)
 {
-	return (write(1, &c, 1));
+    static char buffer[1024];
+    static int bufferCount = 0;
+
+    buffer[bufferCount++] = c;
+     if (bufferCount > 0) 
+     {
+     write(1, buffer, bufferCount);
+     bufferCount = 0;
+     }
 }
