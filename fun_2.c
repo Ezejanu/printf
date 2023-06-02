@@ -112,6 +112,45 @@ void fun_x(va_list toprint)
 	}
 }
 
+/**
+* fun_p - a function that prints the address
+* @toprint: list
+*/
+
+void fun_p(va_list toprint)
+{
+	void *ab;
+	unsigned long add;
+	int a = 0;
+	char bin[100];
+
+	
+	ab = va_arg(toprint, void*);
+	add = (unsigned long)ab;
+
+	 if (add == 0)
+                _putchar('0');
+        else
+        {
+                while (add > 0)
+                {
+                        bin[a] = add % 16;
+                        add = add / 16;
+                        a++;
+                }
+		_puts("0x");
+
+                for (; a > 0; a--)
+                {
+                        if (bin[a - 1] < 10)
+                                _putchar(bin[a - 1] + '0');
+                        else
+                                _putchar((bin[a - 1] - 10) + 'a');
+                }
+        }
+
+}
+
 
 
 

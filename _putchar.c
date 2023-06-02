@@ -13,7 +13,8 @@ void _putchar(char c)
     static int bufferCount = 0;
 
     buffer[bufferCount++] = c;
-     if (bufferCount > 0) 
+
+     if (bufferCount > 0)
      {
      write(1, buffer, bufferCount);
      bufferCount = 0;

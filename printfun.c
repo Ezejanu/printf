@@ -37,6 +37,8 @@ int _printf(const char *format, ...)
 				fun_x(toprint);
 			else if(format[a] == 'X')
 				fun_X(toprint);
+			else if(format[a] == 'p')
+                                fun_p(toprint);
 			else if (format[a] == 'd' || format[a] == 'i')
 			{
 				a--;
