@@ -71,16 +71,41 @@ void fun_b(va_list toprint)
 	}
 }
 
+/**
+* fun_S - a function that handle a custom specifier S
+* Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way:
+* \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+* @toprint: list
+*/
 
+void fun_S(va_list toprint)
+{
+    char *string;
+    int i, ascii;
 
+    string = va_arg(toprint, char*);
+    if (!string)
+        exit(1);
 
+    for (i = 0; string[i] != '\0'; i++)
+    {
+        ascii = (int) string[i];
+        if (ascii > 0 && (ascii < 32 || ascii >= 127))
+        {
+            _putchar('\\');
+            _putchar('x');
+            if (ascii < 16)
+            {
+                _putchar('0');
+            }
+	    else
+            _putchar((ascii / 16) < 10 ? (ascii / 16) + '0' : (ascii / 16) - 10 + 'A');
+            _putchar((ascii % 16) < 10 ? (ascii % 16) + '0' : (ascii % 16) - 10 + 'A');
 
-
-
-
-
-
-
-
-
-
+        }
+        else
+        {
+            _putchar(string[i]);
+        }
+    }
+}

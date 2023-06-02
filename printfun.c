@@ -21,6 +21,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			a++;
+			while (format[a] == '+' || format[a] == ' ' || format[a] == '#') 
+			{
+                		_putchar(format[a]);
+                		a++;
+            		}
+
 			if (format[a] == 'c')
 				fun_c(toprint);
 			else if (format[a] == 's')
@@ -39,6 +45,8 @@ int _printf(const char *format, ...)
 				fun_X(toprint);
 			else if(format[a] == 'p')
                                 fun_p(toprint);
+			else if(format[a] == 'S')
+                                fun_S(toprint);
 			else if (format[a] == 'd' || format[a] == 'i')
 			{
 				a--;

@@ -33,5 +33,7 @@ void fun_x(va_list toprint);
 void fun_X(va_list toprint);
 void tryget(int num);
 void fun_p(va_list toprint);
+void fun_S(va_list toprint);
+
 
 #endif
