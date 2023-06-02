@@ -51,10 +51,11 @@ int _printf(const char *format, ...)
                                 fun_S(toprint);
 			else if (format[a] == 'd' || format[a] == 'i')
 			{
-				a--;
+/**				a--;
 				count += getint(va_arg(toprint, int));
 				a++;
-				count--;
+				count--;*/
+				fun_id(toprint);
 			}
 			else
 			{
