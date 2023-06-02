@@ -7,9 +7,10 @@
 * Return: value of count
 */
 
-int getint(int numb)
+int getint(int num)
 {
 	int count = 0;
+	unsigned int numb = num;
 
 	if (numb == 0)
 	{
@@ -19,7 +20,7 @@ int getint(int numb)
 	}
 	else
 	{
-		if (numb < 0)
+		if (num < 0)
 		{
 			_putchar('-');
 			numb = -numb;

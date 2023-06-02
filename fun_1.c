@@ -11,7 +11,8 @@ void fun_s(va_list toprint)
 
 	string = va_arg(toprint, char*);
 	if (!string)
-		exit(1);
+		_puts("(null)");
+	else
 	_puts(string);
 }
 
@@ -26,7 +27,7 @@ void fun_c(va_list toprint)
 
 	ch = va_arg(toprint, int);
 	if (!ch)
-		exit(1);
+		_putchar('\0');
 	_putchar(ch);
 }
 

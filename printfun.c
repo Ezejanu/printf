@@ -29,6 +29,8 @@ int _printf(const char *format, ...)
 
 			if (format[a] == 'c')
 				fun_c(toprint);
+			else if (format[a] == '\0')
+				return (-1);
 			else if (format[a] == 's')
 				fun_s(toprint);
 			else if (format[a] == '%')
