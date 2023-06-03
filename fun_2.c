@@ -3,33 +3,38 @@
 /**
 * fun_u - function that prints unsigned int
 * @toprint: list
+* Return: couny
 */
 
-void fun_u(va_list toprint)
+int fun_u(va_list toprint)
 {
+	int count = 0;
 	unsigned int un;
 
 	un = va_arg(toprint, int);
 
-	getunint(un);
+	count += getunint(un);
+	return (count);
 }
 
 /**
-* fun_o - a function that converts an unsigned int argument to octadecimal
+* fun_o - a function that converts an unsigned int
+* argument to octadecimal
 * @toprint: list
+* Return: count
 */
 
-void fun_o(va_list toprint)
+int fun_o(va_list toprint)
 {
 	unsigned int oct;
 	char bin[100];
-	int a = 0;
+	int a = 0, count = 0;
 
 	oct = va_arg(toprint, int);
 
 	if (oct == 0)
 	{
-		_putchar('0');
+		count += _putchar('0');
 	}
 	else
 	{
@@ -40,26 +45,28 @@ void fun_o(va_list toprint)
 			a++;
 		}
 		for (; a - 1 >= 0; a--)
-		/* "a - 1 >= 0" can also be written as "a > 0" in the for loop */
-			_putchar(bin[a - 1] + '0');
+			count += _putchar(bin[a - 1] + '0');
 	}
+	return (count);
 }
 
 /**
-* fun_x - a function that converts an unsigned int argument to hexadecimal
+* fun_X - a function that converts an unsigned int
+* argument to hexadecimal
 * @toprint: list
+* Return: count
 */
 
-void fun_X(va_list toprint)
+int fun_X(va_list toprint)
 {
 	unsigned int ab;
 	char bin[100];
-	int a = 0;
+	int a = 0, count = 0;
 
 	ab = va_arg(toprint, int);
 
 	if (ab == 0)
-		_putchar('0');
+		count += _putchar('0');
 	else
 	{
 		while (ab > 0)
@@ -71,93 +78,87 @@ void fun_X(va_list toprint)
 		for (; a > 0; a--)
 		{
 			if (bin[a - 1]  < 10)
-				_putchar(bin[a - 1] + '0');
+				count += _putchar(bin[a - 1] + '0');
 			else
-				_putchar(((bin[a - 1]) - 10) + 'A');
+				count += _putchar(((bin[a - 1]) - 10) + 'A');
 		}
 	}
+	return (count);
 }
 
 
 /**
-* fun_x - a function that converts an unsigned int argument to hexadecimal
+* fun_x - a function that converts an unsigned int
+* argument to hexadecimal
 * @toprint: list
+* Return: count
 */
 
-void fun_x(va_list toprint)
+int fun_x(va_list toprint)
 {
-        unsigned int ab;
-        char bin[100];
-        int a = 0;
+	unsigned int ab;
+	char bin[100];
+	int a = 0, count = 0;
 
-        ab = va_arg(toprint, int);
+	ab = va_arg(toprint, int);
 
-        if (ab == 0)
-                _putchar('0');
+	if (ab == 0)
+		count +=  _putchar('0');
 	else
 	{
-        	while (ab > 0)
-        	{
-                	bin[a] = ab % 16;
-                	ab = ab / 16;
-                	a++;
-        	}
-        	for (; a > 0; a--)
-        	{
-                	if (bin[a - 1] < 10)
-                        	_putchar(bin[a - 1] + '0');
-                	else
-                        	_putchar((bin[a - 1] - 10) + 'a');
-        	}
+		while (ab > 0)
+		{
+			bin[a] = ab % 16;
+			ab = ab / 16;
+			a++;
+		}
+		for (; a > 0; a--)
+		{
+			if (bin[a - 1] < 10)
+				count += _putchar(bin[a - 1] + '0');
+			else
+				count += _putchar((bin[a - 1] - 10) + 'a');
+		}
 	}
+	return (count);
 }
 
 /**
 * fun_p - a function that prints the address
 * @toprint: list
+* Return: count
 */
 
-void fun_p(va_list toprint)
+int fun_p(va_list toprint)
 {
 	void *ab;
 	unsigned long add;
-	int a = 0;
+	int a = 0, count = 0;
 	char bin[100];
 
-	
+
 	ab = va_arg(toprint, void*);
 	add = (unsigned long)ab;
 
-	 if (add == 0)
-                _putchar('0');
-        else
-        {
-                while (add > 0)
-                {
-                        bin[a] = add % 16;
-                        add = add / 16;
-                        a++;
-                }
-		_puts("0x");
+	if (add == 0)
+		count += _putchar('0');
+	else
+	{
+		while (add > 0)
+		{
+			bin[a] = add % 16;
+			add = add / 16;
+			a++;
+		}
+		count += _puts("0x");
 
-                for (; a > 0; a--)
-                {
-                        if (bin[a - 1] < 10)
-                                _putchar(bin[a - 1] + '0');
-                        else
-                                _putchar((bin[a - 1] - 10) + 'a');
-                }
-        }
-
+		for (; a > 0; a--)
+		{
+			if (bin[a - 1] < 10)
+				count += _putchar(bin[a - 1] + '0');
+			else
+				count += _putchar((bin[a - 1] - 10) + 'a');
+		}
+	}
+	return (count);
 }
-
-
-
-
-
-
-
-
-
-
-

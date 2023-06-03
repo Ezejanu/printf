@@ -3,7 +3,7 @@
 
 /**
 * getint - a function to print an integer
-* @numb: integer to be printed
+* @num: integer to be printed
 * Return: value of count
 */
 
@@ -51,7 +51,7 @@ int getunint(unsigned int numb)
 	{
 		_putchar('0');
 		count++;
-		return (0);
+
 	}
 	else
 	{
@@ -62,5 +62,5 @@ int getunint(unsigned int numb)
 		_putchar(numb % 10 + '0');
 		count++;
 	}
-	return (0);
+	return (count);
 }
